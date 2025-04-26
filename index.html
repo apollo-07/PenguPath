@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenguPath: A* Penguin Rescue</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>PenguPath: A* Penguin Rescue</h1>
+            <div class="level-info">
+                <span>Level: <span id="current-level">1</span></span>
+                <span>Moves: <span id="moves-count">0</span></span>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="grid-container" id="grid-container"></div>
+            
+            <div class="controls">
+                <div class="buttons">
+                    <button id="hint-btn" class="game-btn">Show Hint</button>
+                    <button id="reset-btn" class="game-btn">Reset Level</button>
+                    <button id="next-level-btn" class="game-btn">Next Level</button>
+                </div>
+                
+                <div class="how-to-play">
+                    <h2>How to Play</h2>
+                    <ul>
+                        <li>Help the penguin reach the igloo</li>
+                        <li>Click on adjacent tiles to move the penguin</li>
+                        <li>Ice tiles melt after the penguin walks on them</li>
+                        <li>Avoid cracked ice and polar bears</li>
+                        <li>Use "Show Hint" to see the optimal path</li>
+                        <li>Complete all 15 levels to win!</li>
+                    </ul>
+                </div>
+                
+                <div class="legend">
+                    <h2>Legend</h2>
+                    <div class="legend-item">
+                        <div class="legend-color ice"></div>
+                        <span>Ice</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color broken"></div>
+                        <span>Cracked Ice (Obstacle)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color goal"></div>
+                        <span>Igloo (Goal)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color path"></div>
+                        <span>Hint Path</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color melted"></div>
+                        <span>Melted Ice</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color bear-color"></div>
+                        <span>Polar Bear (Danger)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="game-message" class="game-message"></div>
+    </div>
+    
+    <div id="level-complete" class="modal">
+        <div class="modal-content">
+            <h2>Level Complete!</h2>
+            <p>You reached the igloo in <span id="level-moves"></span> moves.</p>
+            <button id="next-level-modal-btn" class="game-btn">Next Level</button>
+        </div>
+    </div>
+    
+    <div id="game-over" class="modal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p id="game-over-message"></p>
+            <button id="retry-btn" class="game-btn">Try Again</button>
+        </div>
+    </div>
+    
+    <div id="game-complete" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <p>You've completed all levels and saved the penguin!</p>
+            <button id="restart-game-btn" class="game-btn">Play Again</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
